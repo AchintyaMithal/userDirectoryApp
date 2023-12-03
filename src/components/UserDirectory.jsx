@@ -16,9 +16,11 @@ const UserDirectory = () => {
   }, []);
 
   useEffect(() => {
+    //setting up user cards on page load
     const fetchUserCards = async () => {
       const cards = await Promise.all(
         users.map(async (user) => {
+          //assinging post count
           const postCount = await getUserPostCount(user.id);
 
           return (
@@ -33,7 +35,7 @@ const UserDirectory = () => {
           );
         })
       );
-
+      //adding individual user card made above into array of userCards
       setUserCards(cards);
     };
 
@@ -48,6 +50,7 @@ const UserDirectory = () => {
   );
 };
 
+//function to get count of post of a particular user using api call
 const getUserPostCount = async (userId) => {
   try {
     const posts = await getUserPosts(userId);
