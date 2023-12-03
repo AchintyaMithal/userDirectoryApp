@@ -25,13 +25,13 @@ const UserDetails = () => {
       const user = await getUserDetails(userId);
       setUserData(user);
     };
-    
+
     //function to get posts of the user data from api
     const getUserPostsData = async () => {
       const posts = await getUserPosts(userId);
       setUserPosts(posts);
     };
-    
+
     //function to get list of countries from api
     const getCountriesData = async () => {
       const countriesList = await getCountries();
@@ -87,15 +87,15 @@ const UserDetails = () => {
   return (
     <div className="user-details-container">
       <div className="user-profile">
-      <Link to="/user-directory" className="back-button">
-        Back to User Directory
-      </Link>
+        <Link to="/user-directory" className="back-button">
+          Back to User Directory
+        </Link>
         <div className="country-dropdown">
           <label htmlFor="country">Select Country: </label>
-          <select className="countryDrop"  id="country" value={selectedCountry} onChange={handleCountryChange}>
+          <select className="countryDrop" id="country" value={selectedCountry} onChange={handleCountryChange}>
             <option value="">Select</option>
             {countries.map((country) => (
-              <option title={country}key={country} value={country}>
+              <option title={country} key={country} value={country}>
                 {country}
               </option>
             ))}
@@ -106,7 +106,7 @@ const UserDetails = () => {
           <span id="clock">{updateCurrentTime(currentTime)}</span>
           <button className="resumeButton" onClick={handlePauseResume}>{clockPaused ? 'Resume' : 'Pause'}</button>
         </div>
-       
+
       </div>
       <h2>User Profile</h2>
 
@@ -131,7 +131,12 @@ const UserDetails = () => {
           {userPosts.map((post) => (
             <div className="post-card" key={post.id} onClick={() => handlePostClick(post)}>
               <h3>{post.title}</h3>
-              <p>{post.body}</p>
+              <p className="small">{post.body}</p>
+              <div className="go-corner" href="#">
+                <div className="go-arrow">
+                  →
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -144,7 +149,7 @@ const UserDetails = () => {
           </div>
         </div>
       )}
-      
+
     </div>
   );
 };

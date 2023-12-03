@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:"Nunito", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -86,14 +86,6 @@ code {
   gap: 20px;
 }
 
-.post-card {
-  width: calc(33.33% - 20px);
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
 .back-button {
   display: block;
   text-decoration: none;
@@ -109,12 +101,83 @@ code {
   border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  position: relative;
+  background-color: #f2f8f9;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
 }
+.post-card:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #00838d;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease-out;
+}
+
+.post-card:hover:before {
+  transform: scale(21);
+}
+.post-card:hover p {
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.post-card:hover h3 {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
+}
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: #00838d;
+  border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
+}
+
+.post-card h3 {
+  color: #262626;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.post-card p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #666666;
+}
+.post-card p .small {
+    font-size: 14px;
+  }
 .user-info-card {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #f2f8f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   margin-right: 20px;
@@ -194,7 +257,7 @@ code {
 }
 
 .popup-content {
-  background: #fff;
+  background-color: #f2f8f9;
   padding: 20px;
   border-radius: 8px;
   max-width: 600px;
@@ -213,3 +276,7 @@ code {
 .userDirectoryH1{
   text-align:center ;
 }
+
+
+  
+  
