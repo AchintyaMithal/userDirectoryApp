@@ -92,25 +92,25 @@ const UserDetails = () => {
         </Link>
         <div className="country-dropdown">
           <div className='select'>
-          <select placeholder='Select Country' className="countryDrop" id="country" value={selectedCountry} onChange={handleCountryChange}>
-            <option value="">Select Country</option>
-            {countries.map((country) => (
-              <option title={country} key={country} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
+            <select placeholder='Select Country' className="countryDrop" id="country" value={selectedCountry} onChange={handleCountryChange}>
+              <option value="">Select Country</option>
+              {countries.map((country) => (
+                <option title={country} key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div className="clock-section">
-  <label htmlFor="clock" className="clock-label">Time:</label>
-  <div className="clock-container">
-    <span id="clock" className="clock">
-      {updateCurrentTime(currentTime)}
-    </span>
-    </div>
-  <button className="resumeButton" onClick={handlePauseResume}>{clockPaused ? 'Resume' : 'Pause'}</button>
-    </div>
+          <label htmlFor="clock" className="clock-label">Time:</label>
+          <div className="clock-container">
+            <span id="clock" className="clock">
+              {updateCurrentTime(currentTime)}
+            </span>
+          </div>
+          <button className="resumeButton" onClick={handlePauseResume}>{clockPaused ? 'Resume' : 'Pause'}</button>
+        </div>
 
       </div>
       <h2>User Profile</h2>
