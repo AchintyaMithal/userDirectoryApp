@@ -14,16 +14,56 @@ code {
 .user-card-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  top: 0px;
+  position: relative;
+  /* max-width: 262px; */
+  background-color: #f2f8f9;
+  border-radius: 4px;
+  /* padding: 32px 24px; */
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid #f2f8f9;
 }
 
+
+.user-card-link:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: white;
+  }
+
+  .user-card-link:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #00838d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+  }
+
+  .user-card-link:hover:before {
+    transform: scale(2.15);
+  }
+
+
 .user-card {
-  border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
-  background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
+  
 }
 
 .user-info {
@@ -52,6 +92,7 @@ code {
 }
 
 .clock-section {
+  text-align: center;
   display: flex;
   align-items: center;
   min-width: 230px;
@@ -95,6 +136,7 @@ code {
   margin-bottom: 10px;
 }
 .post-card {
+  cursor: pointer;
   width: calc(33.33% - 20px); 
   padding: 15px;
   border: 1px solid #ccc;
@@ -187,6 +229,7 @@ code {
 .country-dropdown{
   margin-bottom: 10px;
   margin-right: 10px;
+  display: flex;
 }
 
 /* Responsive styles for mobile view */
@@ -241,7 +284,7 @@ code {
     }
   }
 }
-.user-card:hover,.post-card:hover {
+.post-card:hover {
   background-color: #f0f0f0;
 }
 .popup {
@@ -266,10 +309,7 @@ code {
   overflow: auto;
 }
 
-.resumeButton{
-  min-width: 80px;
-  margin-left: 10px;
-}
+
 #country{
   max-width:200px;
 }
@@ -278,5 +318,89 @@ code {
 }
 
 
-  
-  
+
+
+/* CSS */
+
+.resumeButton {
+  min-width: 100px;
+  margin-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #00838d;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.resumeButton:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .resumeButton {
+    padding: 0.25em 0.75em;
+  }
+}
+
+.clock-label,.clock  {
+  font-size: 1.2em;
+  color: #00838d;
+}
+
+.clock-container {
+  position: relative;
+  display: inline-block;
+}
+
+select {
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  background-color: #f2f8f9;
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  background-color:#f2f8f9;
+  position: relative;
+  display: flex;
+  max-width: 200px;
+  height: 30px;
+  border-radius: .25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  background-color: #00838d;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+

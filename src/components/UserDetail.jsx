@@ -91,21 +91,26 @@ const UserDetails = () => {
           Back to User Directory
         </Link>
         <div className="country-dropdown">
-          <label htmlFor="country">Select Country: </label>
-          <select className="countryDrop" id="country" value={selectedCountry} onChange={handleCountryChange}>
-            <option value="">Select</option>
+          <div className='select'>
+          <select placeholder='Select Country' className="countryDrop" id="country" value={selectedCountry} onChange={handleCountryChange}>
+            <option value="">Select Country</option>
             {countries.map((country) => (
               <option title={country} key={country} value={country}>
                 {country}
               </option>
             ))}
           </select>
+          </div>
         </div>
         <div className="clock-section">
-          <label htmlFor="clock">Clock: </label>
-          <span id="clock">{updateCurrentTime(currentTime)}</span>
-          <button className="resumeButton" onClick={handlePauseResume}>{clockPaused ? 'Resume' : 'Pause'}</button>
-        </div>
+  <label htmlFor="clock" className="clock-label">Time:</label>
+  <div className="clock-container">
+    <span id="clock" className="clock">
+      {updateCurrentTime(currentTime)}
+    </span>
+    </div>
+  <button className="resumeButton" onClick={handlePauseResume}>{clockPaused ? 'Resume' : 'Pause'}</button>
+    </div>
 
       </div>
       <h2>User Profile</h2>
